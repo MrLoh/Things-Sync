@@ -4,5 +4,17 @@
     "main": "index.js",
     "author": "@MrLoh",
     "license": "MIT",
-    "repository": "https://github.com/MrLoh/GitHub-Things-Sync"
+    "repository": "https://github.com/MrLoh/GitHub-Things-Sync",
+    "scripts": {
+        "start": "node ./index.js",
+        "develop": "nodemon ./index.js"
+    },
+    "dependencies": {
+        "dotenv": "^6.0.0",
+        "express": "^4.16.3",
+        "lodash": "^4.17.10"
+    },
+    "devDependencies": {
+        "nodemon": "^1.17.5"
+    }
 }
