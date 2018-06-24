@@ -1,0 +1,8 @@
+{
+    "name": "things-github-sync",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "@MrLoh",
+    "license": "MIT",
+    "repository": "https://github.com/MrLoh/GitHub-Things-Sync"
+}
