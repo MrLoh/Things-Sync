@@ -2,9 +2,7 @@
 require('babel-polyfill');
 require('dotenv').load();
 
-import { createTodo, updateProject } from './things-api';
-
-const sleep = async (time) => new Promise((resolve) => setTimeout(resolve, time));
+import { createTodo, updateProject, terminateCallbackServer } from './things-api';
 
 (async () => {
   try {
@@ -18,8 +16,7 @@ const sleep = async (time) => new Promise((resolve) => setTimeout(resolve, time)
       title: 'Test ToDo 1',
       listId: 'E97BB6A0-677E-43D8-9A83-2582A3DACE8D',
     });
-
-    await sleep(1000);
+    console.log('created', res);
 
     const res2 = await createTodo({
       title: 'Test ToDo 2',
@@ -27,6 +24,7 @@ const sleep = async (time) => new Promise((resolve) => setTimeout(resolve, time)
     });
     console.log('created', res2);
 
+    terminateCallbackServer();
     return;
   } catch (e) {
     throw e;
