@@ -16,7 +16,7 @@ To prevent the script from opening the browser all the time, register a custom U
 
 ```sh
 #!/bin/sh
-curl -g http://localhost:4567$URL_VALUE
+curl -g -s http://localhost:4567$URL_VALUE
 exit 0
 ```
 

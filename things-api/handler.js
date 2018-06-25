@@ -38,15 +38,15 @@ const handlers = {};
 const app = express();
 
 app.get('/success/:pid', (req, res) => {
+  res.send();
   const { pid } = req.params;
   handlers[pid].onSuccess(req);
-  res.send('handled');
 });
 
 app.get('/error/:pid', (req, res) => {
+  res.send();
   const { pid } = req.params;
   handlers[pid].onError(req);
-  res.send('handled');
 });
 
 // start express server
