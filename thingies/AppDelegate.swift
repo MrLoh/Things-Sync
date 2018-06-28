@@ -20,7 +20,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		statusItem.title = "Thingies"
+		let icon = NSImage(named: NSImage.Name(rawValue: "statusIcon"))
+		icon?.isTemplate = true
+		statusItem.image = icon
 		statusItem.menu = statusMenu
 	}
 
