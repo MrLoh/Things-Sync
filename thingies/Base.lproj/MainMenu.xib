@@ -11,19 +11,24 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="thingies" customModuleProvider="target">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="thingies" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="Ego-Kp-g5Y" customClass="StatusMenuController" customModule="thingies" customModuleProvider="target">
             <connections>
-                <outlet property="quitClicked" destination="ZdR-wT-Y06" id="Wao-Rp-OeA"/>
-                <outlet property="statusMenu" destination="l1X-xG-cH3" id="4hO-Lv-B5E"/>
+                <outlet property="quitClicked" destination="ZdR-wT-Y06" id="mCp-Y5-hPM"/>
+                <outlet property="statusMenu" destination="l1X-xG-cH3" id="f8s-E1-LQb"/>
             </connections>
         </customObject>
-        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="l1X-xG-cH3">
             <items>
+                <menuItem title="Item" id="J9u-Hd-LW4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="VUm-7j-y7L"/>
                 <menuItem title="Quit" id="ZdR-wT-Y06">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitClicked:" target="Voe-Tx-rLC" id="gQY-2x-DZB"/>
+                        <action selector="quitClicked:" target="Ego-Kp-g5Y" id="VbE-Gd-2Rt"/>
                     </connections>
                 </menuItem>
             </items>
