@@ -15,7 +15,6 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="Ego-Kp-g5Y" customClass="StatusMenuController" customModule="thingies" customModuleProvider="target">
             <connections>
-                <outlet property="quitClicked" destination="ZdR-wT-Y06" id="mCp-Y5-hPM"/>
                 <outlet property="statusMenu" destination="l1X-xG-cH3" id="f8s-E1-LQb"/>
             </connections>
         </customObject>
@@ -31,7 +30,7 @@
                 <menuItem title="Quit" id="ZdR-wT-Y06">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="quitClicked:" target="Ego-Kp-g5Y" id="VbE-Gd-2Rt"/>
+                        <action selector="quitClicked:" target="Ego-Kp-g5Y" id="OzF-cr-eic"/>
                     </connections>
                 </menuItem>
             </items>
