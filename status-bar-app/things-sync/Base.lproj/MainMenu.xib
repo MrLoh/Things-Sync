@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="things_sync" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="Ego-Kp-g5Y" customClass="StatusMenuController" customModule="things_sync" customModuleProvider="target">
+            <connections>
+                <outlet property="statusMenu" destination="l1X-xG-cH3" id="f8s-E1-LQb"/>
+            </connections>
+        </customObject>
+        <menu id="l1X-xG-cH3">
+            <items>
+                <menuItem title="Send Test Request" id="J9u-Hd-LW4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="sendTestRequest:" target="Ego-Kp-g5Y" id="vOg-uX-dnT"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="VUm-7j-y7L"/>
+                <menuItem title="Quit" id="ZdR-wT-Y06">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="sendTestRequest:" target="Ego-Kp-g5Y" id="OzF-cr-eic"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+    </objects>
+</document>
