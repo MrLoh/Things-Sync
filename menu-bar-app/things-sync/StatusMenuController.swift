@@ -12,9 +12,11 @@ class StatusMenuController: NSObject {
 		statusItem.menu = statusMenu
 	}
 
-
 	@IBAction func quitClicked(_ sender: NSMenuItem) {
-		NSApplication.shared.terminate(self)
+		callNodeServer(path: "exit")
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+			NSApplication.shared.terminate(self)
+		}
 	}
 
 	@IBAction func sendTestRequest(_ sender: NSMenuItem) {

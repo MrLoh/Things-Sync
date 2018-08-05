@@ -1,8 +1,8 @@
 // @flow
 import { kebabCase } from 'lodash';
 
-import { thingsUrlRequest, terminateCallbackServer } from './handler';
-import type { ID } from './handler';
+import { thingsUrlRequest } from './url-request';
+import type { ID } from './url-request';
 
 const convertAttributes = (attributes) =>
   Object.assign(...Object.entries(attributes).map(([key, value]) => ({ [kebabCase(key)]: value })));
@@ -89,5 +89,3 @@ export const updateProject = async (id: ID, props: ProjectAttributes): Promise<I
   const res = await thingsUrlRequest([{ ...op, id }]);
   return res[0];
 };
-
-export { terminateCallbackServer };
