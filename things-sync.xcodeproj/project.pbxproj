@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9E8822221173B9C003D2346 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E8822121173B9C003D2346 /* request.swift */; };
 		F9E9416520E555A500736A1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9416420E555A500736A1C /* AppDelegate.swift */; };
 		F9E9416720E555A700736A1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E9416620E555A700736A1C /* Assets.xcassets */; };
 		F9E9416A20E555A800736A1C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E9416820E555A800736A1C /* MainMenu.xib */; };
@@ -14,12 +15,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F9E9416120E555A500736A1C /* thingies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thingies.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E8822121173B9C003D2346 /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		F9E9416120E555A500736A1C /* things-sync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "things-sync.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E9416420E555A500736A1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E9416620E555A700736A1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9E9416920E555A800736A1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F9E9416B20E555A800736A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9E9416C20E555A800736A1C /* thingies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = thingies.entitlements; sourceTree = "<group>"; };
+		F9E9416C20E555A800736A1C /* things-sync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "things-sync.entitlements"; sourceTree = "<group>"; };
 		F9E9417220E55A6800736A1C /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,7 +39,7 @@
 		F9E9415820E555A500736A1C = {
 			isa = PBXGroup;
 			children = (
-				F9E9416320E555A500736A1C /* thingies */,
+				F9E9416320E555A500736A1C /* things-sync */,
 				F9E9416220E555A500736A1C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,12 +47,12 @@
 		F9E9416220E555A500736A1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F9E9416120E555A500736A1C /* thingies.app */,
+				F9E9416120E555A500736A1C /* things-sync.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F9E9416320E555A500736A1C /* thingies */ = {
+		F9E9416320E555A500736A1C /* things-sync */ = {
 			isa = PBXGroup;
 			children = (
 				F9E9416420E555A500736A1C /* AppDelegate.swift */,
@@ -58,17 +60,18 @@
 				F9E9416620E555A700736A1C /* Assets.xcassets */,
 				F9E9416820E555A800736A1C /* MainMenu.xib */,
 				F9E9416B20E555A800736A1C /* Info.plist */,
-				F9E9416C20E555A800736A1C /* thingies.entitlements */,
+				F9E9416C20E555A800736A1C /* things-sync.entitlements */,
+				F9E8822121173B9C003D2346 /* request.swift */,
 			);
-			path = thingies;
+			path = "things-sync";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F9E9416020E555A500736A1C /* thingies */ = {
+		F9E9416020E555A500736A1C /* things-sync */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F9E9416F20E555A800736A1C /* Build configuration list for PBXNativeTarget "thingies" */;
+			buildConfigurationList = F9E9416F20E555A800736A1C /* Build configuration list for PBXNativeTarget "things-sync" */;
 			buildPhases = (
 				F9E9415D20E555A500736A1C /* Sources */,
 				F9E9415E20E555A500736A1C /* Frameworks */,
@@ -78,9 +81,9 @@
 			);
 			dependencies = (
 			);
-			name = thingies;
+			name = "things-sync";
 			productName = thingies;
-			productReference = F9E9416120E555A500736A1C /* thingies.app */;
+			productReference = F9E9416120E555A500736A1C /* things-sync.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,10 +98,15 @@
 				TargetAttributes = {
 					F9E9416020E555A500736A1C = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
-			buildConfigurationList = F9E9415C20E555A500736A1C /* Build configuration list for PBXProject "thingies" */;
+			buildConfigurationList = F9E9415C20E555A500736A1C /* Build configuration list for PBXProject "things-sync" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F9E9416020E555A500736A1C /* thingies */,
+				F9E9416020E555A500736A1C /* things-sync */,
 			);
 		};
 /* End PBXProject section */
@@ -135,6 +143,7 @@
 			files = (
 				F9E9417320E55A6800736A1C /* StatusMenuController.swift in Sources */,
 				F9E9416520E555A500736A1C /* AppDelegate.swift in Sources */,
+				F9E8822221173B9C003D2346 /* request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,17 +278,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = thingies/thingies.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "things-sync/things-sync.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FZ359DN6FF;
-				INFOPLIST_FILE = thingies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/things-sync/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mrloh.thingies;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mrloh.things-sync";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -288,17 +299,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = thingies/thingies.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "things-sync/things-sync.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FZ359DN6FF;
-				INFOPLIST_FILE = thingies/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/things-sync/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mrloh.thingies;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mrloh.things-sync";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -306,7 +319,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F9E9415C20E555A500736A1C /* Build configuration list for PBXProject "thingies" */ = {
+		F9E9415C20E555A500736A1C /* Build configuration list for PBXProject "things-sync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F9E9416D20E555A800736A1C /* Debug */,
@@ -315,7 +328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F9E9416F20E555A800736A1C /* Build configuration list for PBXNativeTarget "thingies" */ = {
+		F9E9416F20E555A800736A1C /* Build configuration list for PBXNativeTarget "things-sync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F9E9417020E555A800736A1C /* Debug */,

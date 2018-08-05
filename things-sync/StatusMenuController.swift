@@ -12,14 +12,13 @@ class StatusMenuController: NSObject {
 		statusItem.menu = statusMenu
 	}
 
+
 	@IBAction func quitClicked(_ sender: NSMenuItem) {
 		NSApplication.shared.terminate(self)
 	}
 
 	@IBAction func addTask(_ sender: NSMenuItem) {
-		if let url = URL(string: "things://x-callback-url/add?title=Test&x-success=thingies:///roundtrip") {
-			NSWorkspace.shared.open(url)
-		}
+		request(url: "http://localhost:4567/test")
 	}
 
 }
