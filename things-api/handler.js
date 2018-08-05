@@ -37,6 +37,11 @@ const handlers = {};
 // setup express server that handlers callback
 const app = express();
 
+app.get('/test', (req, res) => {
+  console.log('testing');
+  res.send('tested');
+});
+
 app.get('/success/:pid', (req, res) => {
   res.send();
   const { pid } = req.params;
@@ -51,7 +56,7 @@ app.get('/error/:pid', (req, res) => {
 
 // start express server
 const port = process.env.SERVER_PORT || 4567;
-const server = app.listen(port);
+const server = app.listen(port, () => console.log(`server started on http://localhost:${port}`));
 
 export const terminateCallbackServer = () => server.close();
 
