@@ -38,7 +38,7 @@ export type ProjectAttributes = {
 
 const makeTodoOp = (props: TodoAttributes, operation: 'create' | 'update' = 'create') => {
   const { checklist, ...other } = props;
-  const attributes = convertAttributes(props);
+  const attributes = convertAttributes(other);
   if (checklist) {
     attributes['checklist-items'] = checklist.map((item) => ({
       type: 'checklist-item',
@@ -68,14 +68,14 @@ export const updateTodo = async (id: ID, props: TodoAttributes): Promise<ID> => 
 
 const makeProjectOp = (props: TodoAttributes, operation: 'create' | 'update' = 'create') => {
   const { headings, ...other } = props;
-  const attributes = convertAttributes(props);
+  const attributes = convertAttributes(other);
   if (headings) {
     attributes.items = headings.map((heading) => ({
       type: 'heading',
       attributes: { title: heading },
     }));
   }
-  return { operation: 'create', type: 'project', attributes };
+  return { operation, type: 'project', attributes };
 };
 
 export const createProject = async (props: ProjectAttributes): Promise<ID> => {

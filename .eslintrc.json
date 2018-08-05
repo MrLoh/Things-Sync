@@ -1,0 +1,43 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"extends": [
+		"eslint:recommended"
+	],
+	"globals": {
+		"module": true,
+		"process": true
+	},
+	"settings": {
+		"import/resolver": {
+			"babel-module": {}
+		}
+	},
+	"rules": {
+		"no-var": "warn",
+		"prefer-const": "warn",
+		"no-await-in-loop": "error",
+		"prefer-spread": "error",
+		"no-template-curly-in-string": "warn",
+		"valid-jsdoc": "warn",
+		"default-case": "warn",
+		"eqeqeq": [
+			"warn",
+			"smart"
+		],
+		"no-alert": "error",
+		"no-eval": "warn",
+		"no-extend-native": "warn",
+		"no-implicit-coercion": "warn",
+		"no-useless-concat": "warn",
+		"radix": "warn",
+		"wrap-iife": [
+			"error",
+			"inside"
+		],
+		"no-shadow": "warn"
+	}
+}

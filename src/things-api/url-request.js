@@ -34,7 +34,7 @@ type Operation =
       attributes: Object,
     };
 
-let pid = 0;
+let nextPid = 0;
 const handlers = {};
 
 app.get(`${SUCCESS_ROUTE}/:pid`, (req, res) => {
@@ -52,7 +52,7 @@ app.get(`${ERROR_ROUTE}/:pid`, (req, res) => {
 // handle things url scheme request
 export const thingsUrlRequest = (operations: Operation[]): Promise<ID[]> => {
   // increment process id
-  pid++;
+  const pid = nextPid++;
   // execution function for actual request
   return new Promise((resolve, reject) => {
     // timeout request after REQUEST_TIMEOUT
@@ -71,7 +71,7 @@ export const thingsUrlRequest = (operations: Operation[]): Promise<ID[]> => {
     // construct things json URL
     const callbackUrl = process.env.CALLBACK_URL_SCHEME
       ? `${process.env.CALLBACK_URL_SCHEME}://`
-      : `http://localhost:${port}`;
+      : `http://localhost:${process.env.SERVER_PORT || 4567}`;
     const query = Object.entries({
       'auth-token': process.env.AUTH_TOKEN,
       reveal: false,

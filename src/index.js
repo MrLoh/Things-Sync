@@ -1,11 +1,13 @@
 // @flow
-require('babel-polyfill');
-require('dotenv').load();
+import 'babel-polyfill';
+import dotenv from 'dotenv';
 
 import { exec } from 'child_process';
 
-import { createTodo, updateProject } from './things-api';
+import { createTodo } from './things-api';
 import app, { startServer, shutdownServer } from './server';
+
+dotenv.load();
 
 exec('open ./menu-bar-app/build/things-sync.app');
 
@@ -24,12 +26,12 @@ const createRandomTodos = async () => {
 };
 
 app.get('/test', (req, res) => {
-  console.log('server test passed');
   res.send('test passed');
   createRandomTodos();
 });
 
 app.get('/exit', (req, res) => {
+  // eslint-disable-next-line no-console
   console.log('shutting down server');
   res.send('shutting down server');
   shutdownServer();

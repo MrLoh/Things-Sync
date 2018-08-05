@@ -1,4 +1,4 @@
-require('dotenv').load();
+// @flow
 import 'sqlite3';
 import knex from 'knex';
 
@@ -12,14 +12,12 @@ const tasks = db('TMTask')
   .where({ trashed: 0, type: 0 })
   .orderBy('startDate', 'todayIndex');
 
-(async () => {
+export const getTodaysTodos = async () => {
   const [{ id: CinuruAreadId }] = await areas.select({ id: 'uuid' }).where({ title: 'Cinuru' });
 
-  const todayTasks = await tasks
+  return await tasks
     .where({ start: 1, status: OPEN })
     .whereNotNull('startDate')
     .where({ area: CinuruAreadId })
     .select('title');
-
-  console.log(todayTasks);
-})();
+};
