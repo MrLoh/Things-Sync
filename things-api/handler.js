@@ -43,14 +43,14 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/success/:pid', (req, res) => {
-  res.send();
   const { pid } = req.params;
+  res.send(`handled success/${pid} with ${req.query['x-things-ids']}`);
   handlers[pid].onSuccess(req);
 });
 
 app.get('/error/:pid', (req, res) => {
-  res.send();
   const { pid } = req.params;
+  res.send(`handled error/${pid}`);
   handlers[pid].onError(req);
 });
 
