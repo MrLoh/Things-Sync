@@ -6,10 +6,9 @@
     "license": "MIT",
     "repository": "https://github.com/MrLoh/GitHub-Things-Sync",
     "scripts": {
-        "start": "babel-node ./index.js",
-        "develop": "nodemon ./index.js --exec babel-node",
-        "build-menu-bar-app": "xcodebuild -project menu-bar-app/things-sync.xcodeproj/ -scheme Production build",
-        "start-menu-bar-app": "open menu-bar-app/build/things-sync.app"
+        "start": "open menu-bar-app/build/things-sync.app && babel-node ./index.js",
+        "develop": "open menu-bar-app/build/things-sync.app && nodemon ./index.js --exec babel-node",
+        "build-menu-bar-app": "xcodebuild -project menu-bar-app/things-sync.xcodeproj/ -scheme Production build"
     },
     "dependencies": {
         "dotenv": "^6.0.0",

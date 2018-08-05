@@ -1,6 +1,8 @@
 import Foundation
 
-let BASE_URL = "http://localhost:4567"
+
+var SERVER_PORT = ProcessInfo.processInfo.environment["SERVER_PORT"] ?? "4567"
+let BASE_URL = "http://localhost:\(SERVER_PORT)"
 
 func callNodeServer(path: String) {
 	let url = "\(BASE_URL)/\(path)"
