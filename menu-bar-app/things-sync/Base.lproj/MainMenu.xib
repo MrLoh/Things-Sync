@@ -30,7 +30,7 @@
                 <menuItem title="Quit" id="ZdR-wT-Y06">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="sendTestRequest:" target="Ego-Kp-g5Y" id="OzF-cr-eic"/>
+                        <action selector="quitClicked:" target="Ego-Kp-g5Y" id="V8A-Hm-GR6"/>
                     </connections>
                 </menuItem>
             </items>
