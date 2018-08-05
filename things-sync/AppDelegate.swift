@@ -16,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@objc func handleGetURLEvent(event: NSAppleEventDescriptor, replyEvent: NSAppleEventDescriptor?) {
 		let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue!
-		print(urlString!)
+		callNodeServer(path: urlString!.components(separatedBy: "://")[1])
 	}
 }
 

@@ -17,8 +17,8 @@ class StatusMenuController: NSObject {
 		NSApplication.shared.terminate(self)
 	}
 
-	@IBAction func addTask(_ sender: NSMenuItem) {
-		request(url: "http://localhost:4567/test")
+	@IBAction func sendTestRequest(_ sender: NSMenuItem) {
+		callNodeServer(path: "test")
 	}
 
 }

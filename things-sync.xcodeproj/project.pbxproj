@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F9E8822221173B9C003D2346 /* request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E8822121173B9C003D2346 /* request.swift */; };
+		F9E8822221173B9C003D2346 /* callNodeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E8822121173B9C003D2346 /* callNodeServer.swift */; };
 		F9E9416520E555A500736A1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E9416420E555A500736A1C /* AppDelegate.swift */; };
 		F9E9416720E555A700736A1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E9416620E555A700736A1C /* Assets.xcassets */; };
 		F9E9416A20E555A800736A1C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9E9416820E555A800736A1C /* MainMenu.xib */; };
@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F9E8822121173B9C003D2346 /* request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = request.swift; sourceTree = "<group>"; };
+		F9E8822121173B9C003D2346 /* callNodeServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = callNodeServer.swift; sourceTree = "<group>"; };
 		F9E9416120E555A500736A1C /* things-sync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "things-sync.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E9416420E555A500736A1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9E9416620E555A700736A1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 				F9E9416820E555A800736A1C /* MainMenu.xib */,
 				F9E9416B20E555A800736A1C /* Info.plist */,
 				F9E9416C20E555A800736A1C /* things-sync.entitlements */,
-				F9E8822121173B9C003D2346 /* request.swift */,
+				F9E8822121173B9C003D2346 /* callNodeServer.swift */,
 			);
 			path = "things-sync";
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			files = (
 				F9E9417320E55A6800736A1C /* StatusMenuController.swift in Sources */,
 				F9E9416520E555A500736A1C /* AppDelegate.swift in Sources */,
-				F9E8822221173B9C003D2346 /* request.swift in Sources */,
+				F9E8822221173B9C003D2346 /* callNodeServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
