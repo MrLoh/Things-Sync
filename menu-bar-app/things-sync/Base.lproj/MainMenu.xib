@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -20,10 +21,10 @@
         </customObject>
         <menu id="l1X-xG-cH3">
             <items>
-                <menuItem title="Send Test Request" id="J9u-Hd-LW4">
+                <menuItem title="Sync GitHub Projects" id="J9N-Av-G5G">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="sendTestRequest:" target="Ego-Kp-g5Y" id="vOg-uX-dnT"/>
+                        <action selector="syncGitHubProjects:" target="Ego-Kp-g5Y" id="0Ui-AQ-8Xx"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="VUm-7j-y7L"/>

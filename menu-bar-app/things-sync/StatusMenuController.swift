@@ -23,4 +23,8 @@ class StatusMenuController: NSObject {
 		callNodeServer(path: "test")
 	}
 
+	@IBAction func syncGitHubProjects(_ sender: NSMenuItem) {
+		callNodeServer(path: "sync-github-projects")
+	}
+
 }

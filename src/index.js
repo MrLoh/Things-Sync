@@ -13,7 +13,11 @@ exec('open ./menu-bar-app/build/things-sync.app');
 
 app.get('/test', async (req, res) => {
   res.send('test passed');
+});
+
+app.get('/sync-github-projects', async (req, res) => {
   await Promise.all(process.env.GITHUB_PROJECT_IDS.split(',').map(synchronizeGitHubBoard));
+  res.send('github projects synced');
 });
 
 app.get('/exit', (req, res) => {
