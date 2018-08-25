@@ -1,11 +1,18 @@
 // @flow
-import { kebabCase } from 'lodash';
+import { kebabCase, isDate, isUndefined } from 'lodash';
 
 import { thingsUrlRequest } from './url-request';
 import type { ID } from './url-request';
 
 const convertAttributes = (attributes) =>
-  Object.assign(...Object.entries(attributes).map(([key, value]) => ({ [kebabCase(key)]: value })));
+  Object.assign(
+    ...Object.entries(attributes).map(
+      ([key, value]) =>
+        !isUndefined(value) && {
+          [kebabCase(key)]: isDate(value) ? value.toISOString().split('.')[0] + 'Z' : value,
+        }
+    )
+  );
 
 type CommonAttributes = {
   title?: string,
@@ -50,14 +57,24 @@ const makeTodoOp = (props: TodoAttributes, operation: 'create' | 'update' = 'cre
 
 export const createTodo = async (props: TodoAttributes): Promise<ID> => {
   const op = makeTodoOp(props);
-  const res = await thingsUrlRequest([op]);
-  return res[0];
+  try {
+    const res = await thingsUrlRequest([op]);
+    return res[0];
+  } catch (e) {
+    console.log('things url op failed', JSON.stringify(op, null, 2));
+    throw e;
+  }
 };
 
 export const createTodos = async (props: TodoAttributes[]): Promise<ID[]> => {
-  const ops = props.map(makeTodoOp);
-  const res = await thingsUrlRequest(ops);
-  return res;
+  const ops = props.map((prop) => makeTodoOp(prop));
+  try {
+    const res = await thingsUrlRequest(ops);
+    return res;
+  } catch (e) {
+    console.log('things url op failed', JSON.stringify(ops, null, 2));
+    throw e;
+  }
 };
 
 export const updateTodo = async (id: ID, props: TodoAttributes): Promise<ID> => {
