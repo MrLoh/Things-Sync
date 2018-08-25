@@ -50,6 +50,13 @@
             "transform-flow-strip-types"
         ]
     },
+    "nodemonConfig": {
+        "ignore": [
+            "db/*",
+            "menu-bar-app/*"
+        ],
+        "delay": "2500"
+    },
     "prettier": {
         "printWidth": 100,
         "semi": true,
