@@ -57,24 +57,14 @@ const makeTodoOp = (props: TodoAttributes, operation: 'create' | 'update' = 'cre
 
 export const createTodo = async (props: TodoAttributes): Promise<ID> => {
   const op = makeTodoOp(props);
-  try {
-    const res = await thingsUrlRequest([op]);
-    return res[0];
-  } catch (e) {
-    console.log('things url op failed', JSON.stringify(op, null, 2));
-    throw e;
-  }
+  const res = await thingsUrlRequest([op]);
+  return res[0];
 };
 
 export const createTodos = async (props: TodoAttributes[]): Promise<ID[]> => {
   const ops = props.map((prop) => makeTodoOp(prop));
-  try {
-    const res = await thingsUrlRequest(ops);
-    return res;
-  } catch (e) {
-    console.log('things url op failed', JSON.stringify(ops, null, 2));
-    throw e;
-  }
+  const res = await thingsUrlRequest(ops);
+  return res;
 };
 
 export const updateTodo = async (id: ID, props: TodoAttributes): Promise<ID> => {

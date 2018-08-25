@@ -5,7 +5,7 @@ import { exec } from 'child_process';
 
 import app, { startServer, shutdownServer } from './server';
 
-import { synchronizeGitHubProject } from './sync';
+import { synchronizeGitHubBoard } from './sync';
 
 dotenv.load();
 
@@ -13,7 +13,7 @@ exec('open ./menu-bar-app/build/things-sync.app');
 
 app.get('/test', async (req, res) => {
   res.send('test passed');
-  await synchronizeGitHubProject('MDc6UHJvamVjdDk0NzgwMA==');
+  await Promise.all(process.env.GITHUB_PROJECT_IDS.split(',').map(synchronizeGitHubBoard));
 });
 
 app.get('/exit', (req, res) => {

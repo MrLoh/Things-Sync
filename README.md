@@ -19,3 +19,20 @@ To prevent opening the browser with the callback-urls. This repo includes a litt
 ### GitHub
 
 Follow the [instructions](https://developer.github.com/v4/guides/forming-calls/#authenticating-with-graphql) to generate an OAuth Token for the GitHub GraphQL API and set it in the `.env` file as `GITHUB_API_TOKEN` also specify the `GITHUB_API_ENDPOINT` as `https://api.github.com/graphql`.
+
+Specify the IDs of the GitHub Projects you want to synch in the `.env` as a comma separated string `GITHUB_PROJECT_IDS`. You can find the node IDs by using the [GitHub API Explorer](https://developer.github.com/v4/explorer/) and sending a query like this:
+
+```graphql
+{
+  repository(owner: "__", name: "__") {
+    id
+    description
+    projects(first: 100, states: [OPEN]) {
+      nodes {
+        id
+        name
+      }
+    }
+  }
+}
+```
