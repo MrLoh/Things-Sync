@@ -16,6 +16,8 @@ type GitHubIssue = {
   closedAt?: Date,
   merged: boolean,
   mergedAt?: Date,
+  column?: string,
+  boardName?: string,
 };
 
 type GitHubProject = {
@@ -25,6 +27,17 @@ type GitHubProject = {
     name: string,
     issues: GitHubIssue[],
   }[],
+};
+
+type GitHubMilestone = {
+  id: ID,
+  title: string,
+  description: string,
+  url: string,
+  closed: boolean,
+  dueOn?: Date,
+  closedAt?: Date,
+  issues: GitHubIssue[],
 };
 
 const IssueDetailFragments = /* GraphQL */ `
@@ -54,6 +67,22 @@ const IssueDetailFragments = /* GraphQL */ `
     closedAt
     ...AssignedToViewer
     ...Labels
+    column: projectCards(first: 1) @_(get: "nodes[0].column.name") {
+      nodes {
+        column {
+          name
+        }
+      }
+    }
+    boardName: projectCards(first: 1) @_(get: "nodes[0].column.project.name") {
+      nodes {
+        column {
+          project {
+            name
+          }
+        }
+      }
+    }
   }
   fragment PullRequestDetails on PullRequest {
     type: __typename
@@ -69,6 +98,22 @@ const IssueDetailFragments = /* GraphQL */ `
     mergedAt
     ...AssignedToViewer
     ...Labels
+    column: projectCards(first: 1) @_(get: "nodes[0].column.name") {
+      nodes {
+        column {
+          name
+        }
+      }
+    }
+    boardName: projectCards(first: 1) @_(get: "nodes[0].column.project.name") {
+      nodes {
+        column {
+          project {
+            name
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -151,4 +196,72 @@ export const getBoard = async (id: ID): Promise<GitHubProject> => {
       issues: column.issues.map(formatIssueResponse),
     })),
   };
+};
+
+export const getMilestone = async (id: ID): Promise<GitHubMilestone> => {
+  const milestone = await githubApiRequest(
+    /* GraphQL */ `
+      ${IssueDetailFragments}
+      query GetMilestone($milestoneId: ID!, $nIssues: Int, $nAssignees: Int, $nLabels: Int)
+        @_(get: "node") {
+        node(id: $milestoneId) {
+          ... on Milestone {
+            id
+            title
+            description
+            url
+            closed
+            dueOn
+            closedAt
+            pullRequests(first: $nIssues) @_(get: "nodes") {
+              nodes @_(filter: "assignedToViewer") {
+                ...PullRequestDetails
+              }
+            }
+            issues(first: $nIssues) @_(get: "nodes") {
+              nodes @_(filter: "assignedToViewer") {
+                ...IssueDetails
+              }
+            }
+          }
+        }
+      }
+    `,
+    {
+      milestoneId: id,
+      nIssues: 100,
+      nAssignees: 5,
+      nLabels: 10,
+    }
+  );
+  return {
+    ...milestone,
+    issues: [...(milestone.issues || []), ...(milestone.pullRequests || [])],
+    pullRequests: undefined,
+    dueOn: milestone.dueOn && new Date(milestone.dueOn),
+    closedAt: milestone.closedAt && new Date(milestone.closedAt),
+  };
+};
+
+export const getRepoMilestoneIds = async (id: ID): Promise<GitHubMilestone[]> => {
+  const milestoneIds = await githubApiRequest(
+    /* GraphQL */ `
+      query GetRepoMilestones($repoId: ID!) @_(get: "node") {
+        node(id: $repoId) @_(get: "milestones") {
+          ... on Repository {
+            id
+            milestones(first: 100, states: [OPEN]) @_(get: "nodes") {
+              nodes @_(map: "id") {
+                id
+              }
+            }
+          }
+        }
+      }
+    `,
+    {
+      repoId: id,
+    }
+  );
+  return milestoneIds;
 };

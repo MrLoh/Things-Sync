@@ -16,7 +16,7 @@ export default async function(queryString, variables) {
     if (body.data) {
       return transform(body.data);
     } else {
-      throw new Error(`GraphQL Error: ${body}`);
+      throw new Error(`GraphQL Error: ${JSON.stringify(body, null, 2)}`);
     }
   } else {
     return response.text().then((body) => {

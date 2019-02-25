@@ -96,3 +96,19 @@ export const updateProject = async (id: ID, props: ProjectAttributes): Promise<I
   const res = await thingsUrlRequest([{ ...op, id }]);
   return res[0];
 };
+
+export const runBatchedOperations = async (
+  entities: { operation: 'create' | 'update', type: 'project' | 'todo', props: Object, id?: ID }[]
+): Promise<ID[]> => {
+  const ops = entities.map(({ type, operation, props, id }) => {
+    switch (type) {
+      case 'project':
+        return { ...makeProjectOp(props, operation), id };
+      case 'todo':
+        return { ...makeTodoOp(props, operation), id };
+      default:
+        throw new Error(`unknown things type ${type}`);
+    }
+  });
+  return await thingsUrlRequest(ops);
+};

@@ -5,7 +5,11 @@ import { exec } from 'child_process';
 
 import app, { startServer, shutdownServer } from './server';
 
-import { synchronizeGitHubBoard } from './sync';
+import {
+  synchronizeGitHubBoard,
+  synchronizeGitHubRepoMilestones,
+  synchronizeGitHubMilestone,
+} from './sync';
 
 dotenv.load();
 
@@ -16,7 +20,9 @@ app.get('/test', async (req, res) => {
 });
 
 app.get('/sync-github-projects', async (req, res) => {
+  // await Promise.all(process.env.GITHUB_MILESTONE_IDS.split(',').map(synchronizeGitHubMilestone));
   await Promise.all(process.env.GITHUB_PROJECT_IDS.split(',').map(synchronizeGitHubBoard));
+  await Promise.all(process.env.GITHUB_REPO_IDS.split(',').map(synchronizeGitHubRepoMilestones));
   res.send('github projects synced');
 });
 

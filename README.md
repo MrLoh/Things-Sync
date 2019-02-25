@@ -26,8 +26,14 @@ Specify the IDs of the GitHub Projects you want to synch in the `.env` as a comm
 {
   repository(owner: "__", name: "__") {
     id
-    description
-    projects(first: 100, states: [OPEN]) {
+    name
+    milestones(first: 100, states: [OPEN]) {
+      nodes {
+        id
+        title
+      }
+    }
+    projects(first: 10, states: [OPEN]) {
       nodes {
         id
         name
